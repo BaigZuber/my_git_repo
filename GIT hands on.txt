@@ -1,0 +1,379 @@
+1. Establish a local repository for your project with a descriptive name. Set up Git configurations by adding a username and email address. Display and modify the Git configurations, and verify if the changes are reflected in the .git/config file post-editing. Showcase the utilization of both Git Local and Global configurations.
+Ans
+
+root@DESKTOP-1RT156R:~# mkdir project
+root@DESKTOP-1RT156R:~# cd project/
+root@DESKTOP-1RT156R:project# git init
+Initialized empty Git repository in /root/project/.git/
+root@DESKTOP-1RT156R:project# git config --global user.name "Zuber"
+root@DESKTOP-1RT156R:project# git config --global user.email "er.zuber.baig@gmail.com"
+
+root@DESKTOP-1RT156R:project# git config --list
+user.name=Zuber
+user.email=er.zuber.baig@gmail.com
+core.repositoryformatversion=0
+core.filemode=true
+core.bare=false
+core.logallrefupdates=true
+root@DESKTOP-1RT156R:project# git config user.email "er.zuber77.baig@gmail.com"
+root@DESKTOP-1RT156R:project# cat .git/config
+[core]
+        repositoryformatversion = 0
+        filemode = true
+        bare = false
+        logallrefupdates = true
+[user]
+        EMAIL = ER.ZUBER77.BAIG@GMAIL.COM
+root@DESKTOP-1RT156R:project# git config --list
+user.name=Zuber
+user.email=er.zuber.baig@gmail.com
+core.repositoryformatversion=0
+core.filemode=true
+core.bare=false
+core.logallrefupdates=true
+user.email=er.zuber77.baig@gmail.com
+
+
+
+========================================================================
+
+ 
+2. Set up a local repository for your project with a meaningful name. Explore the default branch in the local Git repository. Sequentially create five files, committing each with informative messages. Share the Git log output through multiple methods once the process is complete.
+Ans
+
+root@DESKTOP-1RT156R:~# mkdir project1
+root@DESKTOP-1RT156R:~# cd project1
+root@DESKTOP-1RT156R:project1# git init
+Initialized empty Git repository in /root/project1/.git/
+root@DESKTOP-1RT156R:project1# git branch
+root@DESKTOP-1RT156R:project1# cat branch
+cat: branch: No such file or directory
+root@DESKTOP-1RT156R:project1# touch file{1..5}.txt
+root@DESKTOP-1RT156R:project1# ll
+total 0
+drwxr-xr-x 1 root root 512 Jan  3 13:05 ./
+drwx------ 1 root root 512 Jan  3 13:04 ../
+drwxr-xr-x 1 root root 512 Jan  3 13:04 .git/
+-rw-r--r-- 1 root root   0 Jan  3 13:05 file1.txt
+-rw-r--r-- 1 root root   0 Jan  3 13:05 file2.txt
+-rw-r--r-- 1 root root   0 Jan  3 13:05 file3.txt
+-rw-r--r-- 1 root root   0 Jan  3 13:05 file4.txt
+-rw-r--r-- 1 root root   0 Jan  3 13:05 file5.txt
+
+root@DESKTOP-1RT156R:project1# git add file1.txt
+root@DESKTOP-1RT156R:project1# git commit -m "Add file1.txt - this is the first commit file"
+[master (root-commit) 5919e0d] Add file1.txt - this is the first commit file
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 file1.txt
+root@DESKTOP-1RT156R:project1# git add file2.txt
+root@DESKTOP-1RT156R:project1# git commit -m "Add file2.txt - this is the second commit file"
+[master b03bc84] Add file2.txt - this is the second commit file
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 file2.txt
+root@DESKTOP-1RT156R:project1# git add file3.txt
+root@DESKTOP-1RT156R:project1# git commit -m "Add file3.txt - this is the third commit file"
+[master 130bb51] Add file3.txt - this is the third commit file
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 file3.txt
+root@DESKTOP-1RT156R:project1# git add file4.txt
+root@DESKTOP-1RT156R:project1# git commit -m "Add file4.txt - this is the fourth commit file"
+[master e7e277d] Add file4.txt - this is the fourth commit file
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 file4.txt
+root@DESKTOP-1RT156R:project1# git add file5.txt
+root@DESKTOP-1RT156R:project1# git commit -m "Add file5.txt - this is the fifth commit file"
+[master 4da78a4] Add file5.txt - this is the fifth commit file
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 file5.txt
+ 
+ 
+
+ ###Method 1:-
+ root@DESKTOP-1RT156R:project1# git log
+commit 4da78a4f5fb1381dfdf336ceb0d3635939a3ca32 (HEAD -> master)
+Author: Zuber <er.zuber.baig@gmail.com>
+Date:   Wed Jan 3 13:09:45 2024 +0530
+
+    Add file5.txt - this is the fifth commit file
+
+commit e7e277d8f3c71b6ab8f65d4460b768cc74e1cd37
+Author: Zuber <er.zuber.baig@gmail.com>
+Date:   Wed Jan 3 13:09:25 2024 +0530
+
+    Add file4.txt - this is the fourth commit file
+
+commit 130bb51751f772cf523eb09af67828a2b4e113be
+Author: Zuber <er.zuber.baig@gmail.com>
+Date:   Wed Jan 3 13:09:07 2024 +0530
+
+    Add file3.txt - this is the third commit file
+
+commit b03bc847973dc9df6a7f95cc742e778e8c85389f
+Author: Zuber <er.zuber.baig@gmail.com>
+Date:   Wed Jan 3 13:08:48 2024 +0530
+
+    Add file2.txt - this is the second commit file
+
+commit 5919e0dd52086515a6d2d5e69e13497d0ea7abf7
+Author: Zuber <er.zuber.baig@gmail.com>
+Date:   Wed Jan 3 13:08:39 2024 +0530
+
+    Add file1.txt - this is the first commit file
+:
+commit 4da78a4f5fb1381dfdf336ceb0d3635939a3ca32 (HEAD -> master)
+Author: Zuber <er.zuber.baig@gmail.com>
+Date:   Wed Jan 3 13:09:45 2024 +0530
+
+    Add file5.txt - this is the fifth commit file
+
+commit e7e277d8f3c71b6ab8f65d4460b768cc74e1cd37
+Author: Zuber <er.zuber.baig@gmail.com>
+Date:   Wed Jan 3 13:09:25 2024 +0530
+
+    Add file4.txt - this is the fourth commit file
+
+commit 130bb51751f772cf523eb09af67828a2b4e113be
+Author: Zuber <er.zuber.baig@gmail.com>
+Date:   Wed Jan 3 13:09:07 2024 +0530
+
+    Add file3.txt - this is the third commit file
+
+commit b03bc847973dc9df6a7f95cc742e778e8c85389f
+Author: Zuber <er.zuber.baig@gmail.com>
+Date:   Wed Jan 3 13:08:48 2024 +0530
+
+    Add file2.txt - this is the second commit file
+
+commit 5919e0dd52086515a6d2d5e69e13497d0ea7abf7
+Author: Zuber <er.zuber.baig@gmail.com>
+Date:   Wed Jan 3 13:08:39 2024 +0530
+
+    Add file1.txt - this is the first commit file
+:
+commit 4da78a4f5fb1381dfdf336ceb0d3635939a3ca32 (HEAD -> master)
+Author: Zuber <er.zuber.baig@gmail.com>
+Date:   Wed Jan 3 13:09:45 2024 +0530
+
+    Add file5.txt - this is the fifth commit file
+
+commit e7e277d8f3c71b6ab8f65d4460b768cc74e1cd37
+Author: Zuber <er.zuber.baig@gmail.com>
+Date:   Wed Jan 3 13:09:25 2024 +0530
+
+    Add file4.txt - this is the fourth commit file
+
+commit 130bb51751f772cf523eb09af67828a2b4e113be
+Author: Zuber <er.zuber.baig@gmail.com>
+Date:   Wed Jan 3 13:09:07 2024 +0530
+
+    Add file3.txt - this is the third commit file
+
+commit b03bc847973dc9df6a7f95cc742e778e8c85389f
+Author: Zuber <er.zuber.baig@gmail.com>
+Date:   Wed Jan 3 13:08:48 2024 +0530
+
+    Add file2.txt - this is the second commit file
+
+commit 5919e0dd52086515a6d2d5e69e13497d0ea7abf7
+Author: Zuber <er.zuber.baig@gmail.com>
+Date:   Wed Jan 3 13:08:39 2024 +0530
+
+    Add file1.txt - this is the first commit file
+
+[1]+  Stopped                 git log
+
+
+ ###Method 2 :-
+root@DESKTOP-1RT156R:project1# git log > git_log_output.txt
+root@DESKTOP-1RT156R:project1# cat git_log_output.txt
+commit 4da78a4f5fb1381dfdf336ceb0d3635939a3ca32
+Author: Zuber <er.zuber.baig@gmail.com>
+Date:   Wed Jan 3 13:09:45 2024 +0530
+
+    Add file5.txt - this is the fifth commit file
+
+commit e7e277d8f3c71b6ab8f65d4460b768cc74e1cd37
+Author: Zuber <er.zuber.baig@gmail.com>
+Date:   Wed Jan 3 13:09:25 2024 +0530
+
+    Add file4.txt - this is the fourth commit file
+
+commit 130bb51751f772cf523eb09af67828a2b4e113be
+Author: Zuber <er.zuber.baig@gmail.com>
+Date:   Wed Jan 3 13:09:07 2024 +0530
+
+    Add file3.txt - this is the third commit file
+
+commit b03bc847973dc9df6a7f95cc742e778e8c85389f
+Author: Zuber <er.zuber.baig@gmail.com>
+Date:   Wed Jan 3 13:08:48 2024 +0530
+
+    Add file2.txt - this is the second commit file
+
+commit 5919e0dd52086515a6d2d5e69e13497d0ea7abf7
+Author: Zuber <er.zuber.baig@gmail.com>
+Date:   Wed Jan 3 13:08:39 2024 +0530
+
+    Add file1.txt - this is the first commit file
+ 
+ 
+=========================================================================
+ 
+ 
+3. Open a GitHub account and initiate a remote Git repository. Examine the default branch in the remote repository. Create and commit the following files one by one with meaningful commit messages: 
+	i. README.md 
+	ii. send_disk_alert.sh
+	iii. create_users.sh
+	iv. check_service.sh.
+Ans
+ 
+ Done.
+
+=========================================================================
+ 
+ 
+4. Establish a local repository for your project with a descriptive name. Illustrate the implementation of a Git-Ignore file by committing multiple files to the local repository.
+Ans
+
+ root@DESKTOP-1RT156R:~# mkdir project3
+root@DESKTOP-1RT156R:~# cd project3
+root@DESKTOP-1RT156R:project3# git init
+Initialized empty Git repository in /root/project3/.git/
+root@DESKTOP-1RT156R:project3# vim .gitignore
+root@DESKTOP-1RT156R:project3# touch dell{1..5}
+
+root@DESKTOP-1RT156R:project3# vim .gitignore
+
+root@DESKTOP-1RT156R:project3# git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .gitignore
+        dell1
+        dell2
+        dell3
+        dell4
+        dell5
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+root@DESKTOP-1RT156R:project3# git add .
+root@DESKTOP-1RT156R:project3# git commit -m "Adding files"
+[master (root-commit) 1b13601] Adding files
+ 6 files changed, 1 insertion(+)
+ create mode 100644 .gitignore
+ create mode 100644 dell1
+ create mode 100644 dell2
+ create mode 100644 dell3
+ create mode 100644 dell4
+ create mode 100644 dell5
+root@DESKTOP-1RT156R:project3# git status
+On branch master
+nothing to commit, working tree clean
+
+
+ 
+========================================================================
+ 
+5. Create a local repository with a meaningful project name. Demonstrate the utilization of GIT working area, staging area, and commit area. Experiment with committing, deleting, and restoring files from the repository. Additionally, add files to the staging area and restore them from the staging area.
+Ans
+
+root@DESKTOP-1RT156R:~# mkdir project4
+root@DESKTOP-1RT156R:~# cd project4
+root@DESKTOP-1RT156R:project4# git init
+Initialized empty Git repository in /root/project4/.git/
+root@DESKTOP-1RT156R:project4# touch imp{1..5}.txt
+root@DESKTOP-1RT156R:project4# git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        imp1.txt
+        imp2.txt
+        imp3.txt
+        imp4.txt
+        imp5.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+root@DESKTOP-1RT156R:project4# git add .
+root@DESKTOP-1RT156R:project4# git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   imp1.txt
+        new file:   imp2.txt
+        new file:   imp3.txt
+        new file:   imp4.txt
+        new file:   imp5.txt
+
+root@DESKTOP-1RT156R:project4# git commit -m "impt files"
+[master (root-commit) 07da009] impt files
+ 5 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 imp1.txt
+ create mode 100644 imp2.txt
+ create mode 100644 imp3.txt
+ create mode 100644 imp4.txt
+ create mode 100644 imp5.txt
+ 
+ 
+root@DESKTOP-1RT156R:project4# git rm imp3.txt
+rm 'imp3.txt'
+root@DESKTOP-1RT156R:project4# ll
+total 0
+drwxr-xr-x 1 root root 512 Jan  3 14:41 ./
+drwx------ 1 root root 512 Jan  3 14:39 ../
+drwxr-xr-x 1 root root 512 Jan  3 14:41 .git/
+-rw-r--r-- 1 root root   0 Jan  3 14:39 imp1.txt
+-rw-r--r-- 1 root root   0 Jan  3 14:39 imp2.txt
+-rw-r--r-- 1 root root   0 Jan  3 14:39 imp4.txt
+-rw-r--r-- 1 root root   0 Jan  3 14:39 imp5.txt
+
+root@DESKTOP-1RT156R:project4# git reset HEAD imp3.txt
+Unstaged changes after reset:
+D       imp3.txt
+root@DESKTOP-1RT156R:project4# ll
+total 0
+drwxr-xr-x 1 root root 512 Jan  3 14:41 ./
+drwx------ 1 root root 512 Jan  3 14:39 ../
+drwxr-xr-x 1 root root 512 Jan  3 14:42 .git/
+-rw-r--r-- 1 root root   0 Jan  3 14:39 imp1.txt
+-rw-r--r-- 1 root root   0 Jan  3 14:39 imp2.txt
+-rw-r--r-- 1 root root   0 Jan  3 14:39 imp4.txt
+-rw-r--r-- 1 root root   0 Jan  3 14:39 imp5.txt
+root@DESKTOP-1RT156R:project4# git restore imp3.txt
+root@DESKTOP-1RT156R:project4# ll
+total 0
+drwxr-xr-x 1 root root 512 Jan  3 14:43 ./
+drwx------ 1 root root 512 Jan  3 14:39 ../
+drwxr-xr-x 1 root root 512 Jan  3 14:43 .git/
+-rw-r--r-- 1 root root   0 Jan  3 14:39 imp1.txt
+-rw-r--r-- 1 root root   0 Jan  3 14:39 imp2.txt
+-rw-r--r-- 1 root root   0 Jan  3 14:43 imp3.txt
+-rw-r--r-- 1 root root   0 Jan  3 14:39 imp4.txt
+-rw-r--r-- 1 root root   0 Jan  3 14:39 imp5.txt
+
+root@DESKTOP-1RT156R:project4# git log
+commit 07da0090eca485089116c228b800315ca55c1e9b (HEAD -> master)
+Author: Zuber <er.zuber.baig@gmail.com>
+Date:   Wed Jan 3 14:40:36 2024 +0530
+
+    impt files
+	
+root@DESKTOP-1RT156R:project4# git shortlog
+Zuber (1):
+      impt files
+
+root@DESKTOP-1RT156R:project4# git log --oneline
+07da009 (HEAD -> master) impt files
+
+=========================================================================
+

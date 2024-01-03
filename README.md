@@ -1,1 +1,1 @@
-# git_repo1
+# my_git_repo
